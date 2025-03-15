@@ -55,38 +55,29 @@ As a rule, a response contains:
 
 Below is an authenticated request to the `Routes` endpoint. It will mark an address as visited.
 
-{% swagger baseUrl="https://api.route4me.com/api.v4" method="get" path="/optimization_problem.php" summary="Remove an Address from an Optimization" expanded="true" %}
-{% swagger-description %}
+## Remove an Address from an Optimization
+
+<mark style="color:blue;">`GET`</mark> `https://api.route4me.com/api.v4/optimization_problem.php`
+
 Mark an address with specified `route_id` as visited.
-{% endswagger-description %}
 
-{% swagger-parameter in="query" name="api_key" required="true" %}
-Your API key
-{% endswagger-parameter %}
+#### Query Parameters
 
-{% swagger-parameter in="query" name="route_id" required="true" %}
-Route ID\
+| Name                                          | Type   | Description                     |
+| --------------------------------------------- | ------ | ------------------------------- |
+| api\_key<mark style="color:red;">\*</mark>    | String | Your API key                    |
+| route\_id<mark style="color:red;">\*</mark>   | String | <p>Route ID<br></p>             |
+| address\_id<mark style="color:red;">\*</mark> | String | Address ID                      |
+| is\_visited<mark style="color:red;">\*</mark> | String | 1 means the address was visited |
+| member\_id<mark style="color:red;">\*</mark>  | String | Member ID                       |
 
-{% endswagger-parameter %}
-
-{% swagger-parameter in="query" name="address_id" required="true" %}
-Address ID
-{% endswagger-parameter %}
-
-{% swagger-parameter in="query" name="is_visited" required="true" %}
-1 means the address was visited
-{% endswagger-parameter %}
-
-{% swagger-parameter in="query" name="member_id" required="true" %}
-Member ID
-{% endswagger-parameter %}
-
-{% swagger-response status="200" description="Address removed" %}
+{% tabs %}
+{% tab title="200 Address removed" %}
 ```json
 {"status": "true"}
 ```
-{% endswagger-response %}
-{% endswagger %}
+{% endtab %}
+{% endtabs %}
 
 ### cURL Call Example
 
